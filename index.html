@@ -1,0 +1,1377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Bazaar - Premium Skills Marketplace</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4361ee;
+            --primary-light: #4895ef;
+            --secondary: #3a0ca3;
+            --accent: #f72585;
+            --dark: #121826;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+            --gray-light: #e9ecef;
+            --success: #4cc9f0;
+            --border-radius: 16px;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.12);
+            --transition: all 0.3s ease;
+            --container-width: 1200px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--dark);
+            background-color: #fff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 100%;
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background: var(--primary);
+            color: white;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .btn:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .btn-telegram {
+            background: linear-gradient(135deg, #2AABEE 0%, #229ED9 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-telegram:hover {
+            background: linear-gradient(135deg, #229ED9 0%, #1D93C6 100%);
+        }
+
+        .btn-glow {
+            box-shadow: 0 0 20px rgba(67, 97, 238, 0.3);
+        }
+
+        .btn-glow:hover {
+            box-shadow: 0 0 30px rgba(67, 97, 238, 0.5);
+        }
+
+        .btn-platinum {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            color: #000;
+        }
+
+        .btn-platinum:hover {
+            background: linear-gradient(135deg, #FFA500 0%, #FF8C00 100%);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            transition: var(--transition);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        header.scrolled {
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo i {
+            color: var(--accent);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            bottom: 0;
+            left: 0;
+            transition: var(--transition);
+        }
+
+        .nav-link:hover:after {
+            width: 100%;
+        }
+
+        .mobile-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 180px 0 100px;
+            background: linear-gradient(135deg, #4361ee 0%, #3a0ca3 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none"><path d="M500,97C126.7,96.3,0.8,19.8,0,0v100l1000,0V1C1000,19.4,873.3,97.8,500,97z" fill="%23ffffff"/></svg>');
+            background-size: 100% 100px;
+            background-position: bottom;
+            background-repeat: no-repeat;
+            bottom: 0;
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.8s forwards 0.3s;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.8s forwards 0.5s;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.8s forwards 0.7s;
+        }
+
+        .hero .btn {
+            font-size: 18px;
+            padding: 16px 36px;
+        }
+
+        /* Trust Indicators */
+        .trust {
+            padding: 80px 0;
+        }
+
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .trust-card {
+            text-align: center;
+            padding: 30px 20px;
+            border-radius: var(--border-radius);
+            background: var(--light);
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .trust-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .trust-card i {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .trust-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        /* Popular Courses */
+        .popular {
+            padding: 80px 0;
+            background: var(--light);
+        }
+
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .course-card {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .course-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .course-img {
+            height: 200px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .course-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .course-card:hover .course-img img {
+            transform: scale(1.05);
+        }
+
+        .course-content {
+            padding: 25px;
+        }
+
+        .course-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .course-price {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 15px 0;
+        }
+
+        /* Categories */
+        .categories {
+            padding: 80px 0;
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .category-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            cursor: pointer;
+            border: 2px solid transparent;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .category-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .category-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .category-card i {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        /* Category Expansion Pages */
+        .category-expansion {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: white;
+            z-index: 2000;
+            overflow-y: auto;
+            display: none;
+            padding: 100px 0 50px;
+        }
+
+        .category-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .category-header h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .close-category {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--gray);
+            transition: var(--transition);
+        }
+
+        .close-category:hover {
+            color: var(--dark);
+            transform: rotate(90deg);
+        }
+
+        .subcourses-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .subcourse-card {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .subcourse-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .subcourse-img {
+            height: 180px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .subcourse-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .subcourse-card:hover .subcourse-img img {
+            transform: scale(1.05);
+        }
+
+        .subcourse-img:after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            transition: var(--transition);
+            top: 0;
+            left: 0;
+        }
+
+        .subcourse-card:hover .subcourse-img:after {
+            opacity: 1;
+        }
+
+        .subcourse-content {
+            padding: 20px;
+        }
+
+        .subcourse-content h4 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            height: 60px;
+            overflow: hidden;
+        }
+
+        .subcourse-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 10px 0;
+        }
+
+        /* Platinum Membership */
+        .platinum {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #121826 0%, #2d3748 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .platinum:before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.2) 0%, transparent 70%);
+            top: -100px;
+            right: -100px;
+            border-radius: 50%;
+        }
+
+        .platinum-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .platinum h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .platinum-badge {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            margin-bottom: 30px;
+            animation: pulse 2s infinite;
+        }
+
+        .benefits {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+
+        .benefit {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1rem;
+        }
+
+        .benefit i {
+            color: #FFD700;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            padding: 80px 0;
+            background: var(--light);
+        }
+
+        .steps {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .step {
+            text-align: center;
+            max-width: 250px;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .step.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .step-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 20px;
+        }
+
+        /* Final CTA */
+        .final-cta {
+            padding: 100px 0;
+            text-align: center;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .final-cta h2 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+        }
+
+        .final-cta p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Modal */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 3000;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: var(--border-radius);
+            max-width: 500px;
+            width: 100%;
+            padding: 40px;
+            position: relative;
+            animation: modalFadeIn 0.3s ease-out;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--gray);
+        }
+
+        .modal h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .modal-price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 20px 0;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-column h4 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: var(--light);
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column a:hover {
+            color: var(--primary-light);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--gray);
+        }
+
+        /* Animations */
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .trust-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .subcourses-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .categories-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .steps {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-toggle {
+                display: block;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                align-items: center;
+                padding: 30px 0;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: var(--transition);
+                z-index: 999;
+            }
+            
+            .nav-menu.active {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .courses-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .subcourses-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-btns {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .subcourses-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .categories-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .trust-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .platinum h2 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <i class="fas fa-graduation-cap"></i> Course Bazaar
+            </a>
+            <div class="mobile-toggle" id="mobileToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#courses" class="nav-link">Courses</a></li>
+                <li><a href="#categories" class="nav-link">Categories</a></li>
+                <li><a href="#popular" class="nav-link">Popular</a></li>
+                <li><a href="#platinum" class="nav-link">Platinum</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Learn High-Value Skills at Affordable Prices</h1>
+            <p>Video Editing • AI • YouTube • Finance • Career Skills</p>
+            <div class="hero-btns">
+                <a href="https://t.me/coursebazaar33" target="_blank" class="btn btn-telegram btn-glow">
+                    <i class="fab fa-telegram"></i> JOIN TELEGRAM CHANNEL
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Indicators -->
+    <section class="trust">
+        <div class="container">
+            <div class="trust-grid">
+                <div class="trust-card">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>4000+</h3>
+                    <p>Premium Courses</p>
+                </div>
+                <div class="trust-card">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Instant</h3>
+                    <p>Access</p>
+                </div>
+                <div class="trust-card">
+                    <i class="fas fa-indian-rupee-sign"></i>
+                    <h3>Affordable</h3>
+                    <p>Pricing</p>
+                </div>
+                <div class="trust-card">
+                    <i class="fas fa-infinity"></i>
+                    <h3>Lifetime</h3>
+                    <p>Learning</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Courses -->
+    <section class="popular" id="popular">
+        <div class="container">
+            <h2 class="section-title">Popular Courses</h2>
+            <div class="courses-grid">
+                <div class="course-card">
+                    <div class="course-img">
+                        <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Video Editing Course">
+                    </div>
+                    <div class="course-content">
+                        <h3>XO Multimedia – Video Editor's Launchpad</h3>
+                        <p>Master professional video editing with this comprehensive course designed for beginners and intermediates.</p>
+                        <div class="course-price">₹499</div>
+                        <button class="btn btn-view-details" data-course="XO Multimedia – Video Editor's Launchpad" data-price="₹499">View Details</button>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <div class="course-img">
+                        <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="AI & YouTube Course">
+                    </div>
+                    <div class="course-content">
+                        <h3>Dhruv Rathee – AI & YouTube Courses</h3>
+                        <p>Learn AI tools and YouTube strategies from one of India's top educators.</p>
+                        <div class="course-price">Starting ₹199</div>
+                        <button class="btn btn-view-details" data-course="Dhruv Rathee – AI & YouTube Courses" data-price="Starting ₹199">View Details</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Course Categories -->
+    <section class="categories" id="categories">
+        <div class="container">
+            <h2 class="section-title">Browse Courses by Category</h2>
+            <div class="categories-grid">
+                <div class="category-card" data-category="youtube">
+                    <i class="fab fa-youtube"></i>
+                    <h3>YouTube Courses</h3>
+                    <p>Master YouTube growth, monetization & content creation</p>
+                    <span class="btn" style="margin-top: 15px; padding: 8px 20px; font-size: 14px;">Browse Courses →</span>
+                </div>
+                <div class="category-card" data-category="video-editing">
+                    <i class="fas fa-film"></i>
+                    <h3>Video Editing Courses</h3>
+                    <p>Learn professional editing with Premiere Pro, After Effects & more</p>
+                    <span class="btn" style="margin-top: 15px; padding: 8px 20px; font-size: 14px;">Browse Courses →</span>
+                </div>
+                <div class="category-card">
+                    <i class="fas fa-camera"></i>
+                    <h3>IG Creator</h3>
+                    <p>Instagram content creation, reels, and growth strategies</p>
+                </div>
+                <div class="category-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Trading</h3>
+                    <p>Stock market, cryptocurrency, and forex trading courses</p>
+                </div>
+                <div class="category-card">
+                    <i class="fas fa-code"></i>
+                    <h3>Web Development</h3>
+                    <p>Full-stack development, frontend, backend, and frameworks</p>
+                </div>
+                <div class="category-card">
+                    <i class="fas fa-brain"></i>
+                    <h3>Self Improvement</h3>
+                    <p>Productivity, communication, and personal growth courses</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- YouTube Courses Expansion -->
+    <div class="category-expansion" id="youtube-expansion">
+        <div class="container">
+            <div class="close-category" id="closeYoutube">
+                <i class="fas fa-times"></i>
+            </div>
+            <div class="category-header">
+                <h2><i class="fab fa-youtube"></i> YouTube Courses</h2>
+                <p>Master YouTube growth, content creation, and monetization with our specialized courses</p>
+            </div>
+            <div class="subcourses-grid">
+                <!-- YouTube sub-courses will be dynamically generated -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Video Editing Courses Expansion -->
+    <div class="category-expansion" id="video-editing-expansion">
+        <div class="container">
+            <div class="close-category" id="closeVideoEditing">
+                <i class="fas fa-times"></i>
+            </div>
+            <div class="category-header">
+                <h2><i class="fas fa-film"></i> Video Editing Courses</h2>
+                <p>Professional video editing courses for all skill levels and software</p>
+            </div>
+            <div class="subcourses-grid">
+                <!-- Video editing sub-courses will be dynamically generated -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Platinum Membership -->
+    <section class="platinum" id="platinum">
+        <div class="container">
+            <div class="platinum-content">
+                <span class="platinum-badge">🔥 BEST VALUE</span>
+                <h2>Platinum Membership – Access All Courses</h2>
+                <p>Unlock unlimited access to our entire course library, including all future updates and additions.</p>
+                
+                <div class="benefits">
+                    <div class="benefit">
+                        <i class="fas fa-unlock"></i>
+                        <span>All courses unlocked</span>
+                    </div>
+                    <div class="benefit">
+                        <i class="fas fa-infinity"></i>
+                        <span>Lifetime access</span>
+                    </div>
+                    <div class="benefit">
+                        <i class="fas fa-sync"></i>
+                        <span>Free future updates</span>
+                    </div>
+                </div>
+                
+                <a href="https://t.me/coursebazaar33" target="_blank" class="btn btn-platinum btn-glow" style="font-size: 1.2rem; padding: 18px 40px;">
+                    <i class="fas fa-crown"></i> JOIN PLATINUM NOW
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-icon">1</div>
+                    <h3>Join Telegram Channel</h3>
+                    <p>Join our Telegram channel @coursebazaar33 to browse available courses</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">2</div>
+                    <h3>Choose Your Course</h3>
+                    <p>Select the course you want to purchase from our extensive catalog</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">3</div>
+                    <h3>Pay via UPI & Get Access</h3>
+                    <p>Complete payment via UPI and get instant access to your course</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta" id="contact">
+        <div class="container">
+            <h2>JOIN TELEGRAM & START LEARNING TODAY</h2>
+            <p>Access 4000+ premium courses at affordable prices with instant delivery and lifetime access. Join our community of learners now!</p>
+            <a href="https://t.me/coursebazaar33" target="_blank" class="btn btn-telegram btn-glow" style="font-size: 1.2rem; padding: 18px 40px;">
+                <i class="fab fa-telegram"></i> @coursebazaar33
+            </a>
+        </div>
+    </section>
+
+    <!-- Buy Modal -->
+    <div class="modal" id="buyModal">
+        <div class="modal-content">
+            <div class="modal-close" id="modalClose">
+                <i class="fas fa-times"></i>
+            </div>
+            <h3 id="modalCourseTitle">Course Title</h3>
+            <div class="modal-price" id="modalCoursePrice">₹499</div>
+            <p>You will be redirected to Telegram to complete your purchase.</p>
+            <a href="https://t.me/coursebazaar33" target="_blank" class="btn btn-telegram" style="width: 100%; margin-top: 30px; padding: 16px;">
+                <i class="fab fa-telegram"></i> CONTINUE TO TELEGRAM
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <div class="footer-logo">Course Bazaar</div>
+                    <p>Premium course marketplace with 4000+ courses across multiple categories. Learn high-value skills at affordable prices.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><a href="#popular">Popular Courses</a></li>
+                            <li><a href="#categories">Categories</a></li>
+                            <li><a href="#platinum">Platinum Membership</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Support</h4>
+                        <ul>
+                            <li><a href="https://t.me/coursebazaar33" target="_blank">Telegram Support</a></li>
+                            <li><a href="#">FAQ</a></li>
+                            <li><a href="#">Payment Methods</a></li>
+                            <li><a href="#">Refund Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 Course Bazaar. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Course data with images
+        const youtubeCourses = [
+            { title: "YouTube Automation Mastery", price: "₹999", image: "https://images.unsplash.com/photo-1611162618071-b39a2ec055fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
+            { title: "Faceless YouTube Channel", price: "₹799", image: "https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
+            { title: "YouTube Shorts Growth", price: "₹599", image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
+            { title: "YouTube SEO Course", price: "₹899", image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
+            { title: "Monetization Blueprint", price: "₹1199", image: "https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
+            { title: "Channel Growth & Scaling", price: "₹1299", image: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
+            { title: "Content Strategy", price: "₹699", image: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
+            { title: "Scriptwriting for YouTube", price: "₹499", image: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
+            { title: "AI Tools for YouTube", price: "₹899", image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
+            { title: "Thumbnail Design Course", price: "₹399", image: "https://images.unsplash.com/photo-1563089145-599997674d42?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
+            { title: "YouTube Analytics Masterclass", price: "₹599", image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" }
+        ];
+
+        const videoEditingCourses = [
+            { title: "Beginner Video Editing", price: "₹299", image: "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
+            { title: "Premiere Pro Mastery", price: "₹1499", image: "https://images.unsplash.com/photo-1626785774573-4b799315345d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
+            { title: "After Effects Basics", price: "₹999", image: "https://images.unsplash.com/photo-1622550275806-3a5b5d5c4b0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
+            { title: "CapCut Advanced", price: "₹499", image: "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
+            { title: "Reels & Shorts Editing", price: "₹599", image: "https://images.unsplash.com/photo-1611605698323-b1e99cfd37ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
+            { title: "YouTube Long-Form Editing", price: "₹799", image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
+            { title: "Documentary Editing", price: "₹999", image: "https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
+            { title: "Color Grading Mastery", price: "₹899", image: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
+            { title: "AI Video Editing", price: "₹1199", image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" }
+        ];
+
+        // DOM elements
+        const header = document.getElementById('header');
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navMenu = document.getElementById('navMenu');
+        const trustCards = document.querySelectorAll('.trust-card');
+        const courseCards = document.querySelectorAll('.course-card');
+        const categoryCards = document.querySelectorAll('.category-card');
+        const steps = document.querySelectorAll('.step');
+        const youtubeExpansion = document.getElementById('youtube-expansion');
+        const videoEditingExpansion = document.getElementById('video-editing-expansion');
+        const closeYoutube = document.getElementById('closeYoutube');
+        const closeVideoEditing = document.getElementById('closeVideoEditing');
+        const buyModal = document.getElementById('buyModal');
+        const modalClose = document.getElementById('modalClose');
+        const modalCourseTitle = document.getElementById('modalCourseTitle');
+        const modalCoursePrice = document.getElementById('modalCoursePrice');
+        const viewDetailsBtns = document.querySelectorAll('.btn-view-details');
+        
+        // YouTube and Video Editing category grids
+        const youtubeGrid = document.querySelector('#youtube-expansion .subcourses-grid');
+        const videoEditingGrid = document.querySelector('#video-editing-expansion .subcourses-grid');
+
+        // Initialize the website
+        document.addEventListener('DOMContentLoaded', function() {
+            // Generate YouTube course cards with images
+            youtubeCourses.forEach(course => {
+                const card = document.createElement('div');
+                card.className = 'subcourse-card';
+                card.innerHTML = `
+                    <div class="subcourse-img">
+                        <img src="${course.image}" alt="${course.title}">
+                    </div>
+                    <div class="subcourse-content">
+                        <h4>${course.title}</h4>
+                        <div class="subcourse-price">${course.price}</div>
+                        <button class="btn" data-course="${course.title}" data-price="${course.price}">BUY</button>
+                    </div>
+                `;
+                youtubeGrid.appendChild(card);
+            });
+
+            // Generate Video Editing course cards with images
+            videoEditingCourses.forEach(course => {
+                const card = document.createElement('div');
+                card.className = 'subcourse-card';
+                card.innerHTML = `
+                    <div class="subcourse-img">
+                        <img src="${course.image}" alt="${course.title}">
+                    </div>
+                    <div class="subcourse-content">
+                        <h4>${course.title}</h4>
+                        <div class="subcourse-price">${course.price}</div>
+                        <button class="btn" data-course="${course.title}" data-price="${course.price}">BUY</button>
+                    </div>
+                `;
+                videoEditingGrid.appendChild(card);
+            });
+
+            // Add event listeners to dynamically generated BUY buttons
+            document.addEventListener('click', function(e) {
+                if (e.target.classList.contains('btn') && e.target.textContent === 'BUY') {
+                    const course = e.target.getAttribute('data-course');
+                    const price = e.target.getAttribute('data-price');
+                    openBuyModal(course, price);
+                }
+            });
+
+            // Header scroll effect
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+                
+                // Animate elements on scroll
+                animateOnScroll();
+            });
+
+            // Mobile menu toggle
+            mobileToggle.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+                mobileToggle.innerHTML = navMenu.classList.contains('active') ? 
+                    '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+            });
+
+            // Close mobile menu when clicking a link
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', function() {
+                    navMenu.classList.remove('active');
+                    mobileToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                });
+            });
+
+            // Category expansion
+            document.querySelectorAll('.category-card').forEach(card => {
+                card.addEventListener('click', function() {
+                    const category = this.getAttribute('data-category');
+                    if (category === 'youtube') {
+                        youtubeExpansion.style.display = 'block';
+                        document.body.style.overflow = 'hidden';
+                    } else if (category === 'video-editing') {
+                        videoEditingExpansion.style.display = 'block';
+                        document.body.style.overflow = 'hidden';
+                    }
+                });
+            });
+
+            // Close category expansion
+            closeYoutube.addEventListener('click', function() {
+                youtubeExpansion.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            });
+
+            closeVideoEditing.addEventListener('click', function() {
+                videoEditingExpansion.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            });
+
+            // View Details buttons
+            viewDetailsBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const course = this.getAttribute('data-course');
+                    const price = this.getAttribute('data-price');
+                    openBuyModal(course, price);
+                });
+            });
+
+            // Modal close
+            modalClose.addEventListener('click', function() {
+                buyModal.style.display = 'none';
+            });
+
+            // Close modal when clicking outside
+            window.addEventListener('click', function(e) {
+                if (e.target === buyModal) {
+                    buyModal.style.display = 'none';
+                }
+            });
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Initial animation on load
+            setTimeout(() => {
+                animateOnScroll();
+            }, 500);
+        });
+
+        // Function to open buy modal
+        function openBuyModal(course, price) {
+            modalCourseTitle.textContent = course;
+            modalCoursePrice.textContent = price;
+            buyModal.style.display = 'flex';
+        }
+
+        // Function to animate elements on scroll
+        function animateOnScroll() {
+            // Trust cards animation
+            trustCards.forEach((card, index) => {
+                const cardTop = card.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (cardTop < windowHeight - 100) {
+                    setTimeout(() => {
+                        card.classList.add('visible');
+                    }, index * 100);
+                }
+            });
+
+            // Course cards animation
+            courseCards.forEach((card, index) => {
+                const cardTop = card.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (cardTop < windowHeight - 100) {
+                    setTimeout(() => {
+                        card.classList.add('visible');
+                    }, index * 150);
+                }
+            });
+
+            // Category cards animation
+            categoryCards.forEach((card, index) => {
+                const cardTop = card.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (cardTop < windowHeight - 100) {
+                    setTimeout(() => {
+                        card.classList.add('visible');
+                    }, index * 100);
+                }
+            });
+
+            // Steps animation
+            steps.forEach((step, index) => {
+                const stepTop = step.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (stepTop < windowHeight - 100) {
+                    setTimeout(() => {
+                        step.classList.add('visible');
+                    }, index * 200);
+                }
+            });
+        }
+    </script>
+</body>
+</html>
