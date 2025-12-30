@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Course Bazaar - Premium Skills Marketplace</title>
+    <title>Course Bazaar - Premium Digital Products Marketplace</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -77,14 +77,23 @@
             box-shadow: var(--shadow-hover);
         }
 
-        .btn-telegram {
-            background: linear-gradient(135deg, #2AABEE 0%, #229ED9 100%);
-            position: relative;
-            overflow: hidden;
+        .btn-success {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
         }
 
-        .btn-telegram:hover {
-            background: linear-gradient(135deg, #229ED9 0%, #1D93C6 100%);
+        .btn-success:hover {
+            background: linear-gradient(135deg, #059669 0%, #047857 100%);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
         }
 
         .btn-glow {
@@ -102,6 +111,14 @@
 
         .btn-platinum:hover {
             background: linear-gradient(135deg, #FFA500 0%, #FF8C00 100%);
+        }
+
+        .btn-telegram {
+            background: linear-gradient(135deg, #2AABEE 0%, #229ED9 100%);
+        }
+
+        .btn-telegram:hover {
+            background: linear-gradient(135deg, #229ED9 0%, #1D93C6 100%);
         }
 
         .section-title {
@@ -164,6 +181,7 @@
             display: flex;
             list-style: none;
             gap: 30px;
+            align-items: center;
         }
 
         .nav-link {
@@ -187,6 +205,35 @@
             width: 100%;
         }
 
+        .nav-link.active {
+            color: var(--primary);
+        }
+
+        .nav-link.active:after {
+            width: 100%;
+        }
+
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--accent);
+            color: white;
+            font-size: 0.7rem;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
         .mobile-toggle {
             display: none;
             font-size: 1.5rem;
@@ -195,7 +242,7 @@
 
         /* Hero */
         .hero {
-            padding: 180px 0 100px;
+            padding: 140px 0 80px;
             background: linear-gradient(135deg, #4361ee 0%, #3a0ca3 100%);
             color: white;
             position: relative;
@@ -210,7 +257,7 @@
             width: 100%;
             height: 100%;
             background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none"><path d="M500,97C126.7,96.3,0.8,19.8,0,0v100l1000,0V1C1000,19.4,873.3,97.8,500,97z" fill="%23ffffff"/></svg>');
-            background-size: 100% 100px;
+            background-size: 100% 80px;
             background-position: bottom;
             background-repeat: no-repeat;
             bottom: 0;
@@ -225,7 +272,7 @@
         }
 
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 3.2rem;
             margin-bottom: 20px;
             opacity: 0;
             transform: translateY(20px);
@@ -255,42 +302,42 @@
             padding: 16px 36px;
         }
 
-        /* Trust Indicators */
-        .trust {
-            padding: 80px 0;
-        }
-
-        .trust-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 30px;
-        }
-
-        .trust-card {
-            text-align: center;
-            padding: 30px 20px;
-            border-radius: var(--border-radius);
-            background: var(--light);
-            transition: var(--transition);
+        .search-container {
+            max-width: 600px;
+            margin: 40px auto 0;
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(20px);
+            animation: fadeUp 0.8s forwards 0.9s;
         }
 
-        .trust-card.visible {
-            opacity: 1;
-            transform: translateY(0);
+        .search-box {
+            position: relative;
+            width: 100%;
         }
 
-        .trust-card i {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: var(--primary);
+        .search-input {
+            width: 100%;
+            padding: 20px 60px 20px 30px;
+            border-radius: var(--border-radius);
+            border: none;
+            font-size: 1.1rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
         }
 
-        .trust-card h3 {
-            font-size: 1.8rem;
-            margin-bottom: 10px;
-            color: var(--dark);
+        .search-input:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
+        }
+
+        .search-icon {
+            position: absolute;
+            right: 25px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gray);
+            font-size: 1.2rem;
+            cursor: pointer;
         }
 
         /* Popular Courses */
@@ -301,7 +348,7 @@
 
         .courses-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 30px;
             margin-bottom: 40px;
         }
@@ -348,8 +395,18 @@
         }
 
         .course-content h3 {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             margin-bottom: 10px;
+            height: 60px;
+            overflow: hidden;
+        }
+
+        .course-rating {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-bottom: 15px;
+            color: #FFD700;
         }
 
         .course-price {
@@ -357,6 +414,18 @@
             font-weight: 700;
             color: var(--primary);
             margin: 15px 0;
+        }
+
+        .course-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .course-actions .btn {
+            flex: 1;
+            padding: 12px 15px;
+            font-size: 14px;
         }
 
         /* Categories */
@@ -368,6 +437,7 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 25px;
+            margin-bottom: 50px;
         }
 
         .category-card {
@@ -400,52 +470,29 @@
             color: var(--primary);
         }
 
-        /* Category Expansion Pages */
-        .category-expansion {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: white;
-            z-index: 2000;
-            overflow-y: auto;
+        /* Category Courses */
+        .category-courses {
+            margin-top: 60px;
             display: none;
-            padding: 100px 0 50px;
         }
 
-        .category-header {
-            text-align: center;
-            margin-bottom: 50px;
+        .category-courses.active {
+            display: block;
         }
 
-        .category-header h2 {
-            font-size: 3rem;
-            margin-bottom: 20px;
+        /* Digital Products */
+        .digital-products {
+            padding: 80px 0;
+            background: var(--light);
         }
 
-        .close-category {
-            position: absolute;
-            top: 30px;
-            right: 30px;
-            font-size: 2rem;
-            cursor: pointer;
-            color: var(--gray);
-            transition: var(--transition);
-        }
-
-        .close-category:hover {
-            color: var(--dark);
-            transform: rotate(90deg);
-        }
-
-        .subcourses-grid {
+        .products-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 25px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
         }
 
-        .subcourse-card {
+        .product-card {
             background: white;
             border-radius: var(--border-radius);
             overflow: hidden;
@@ -453,60 +500,24 @@
             transition: var(--transition);
         }
 
-        .subcourse-card:hover {
-            transform: translateY(-5px);
+        .product-card:hover {
+            transform: translateY(-10px);
             box-shadow: var(--shadow-hover);
         }
 
-        .subcourse-img {
+        .product-img {
             height: 180px;
-            position: relative;
             overflow: hidden;
         }
 
-        .subcourse-img img {
+        .product-img img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s ease;
         }
 
-        .subcourse-card:hover .subcourse-img img {
-            transform: scale(1.05);
-        }
-
-        .subcourse-img:after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.3);
-            opacity: 0;
-            transition: var(--transition);
-            top: 0;
-            left: 0;
-        }
-
-        .subcourse-card:hover .subcourse-img:after {
-            opacity: 1;
-        }
-
-        .subcourse-content {
-            padding: 20px;
-        }
-
-        .subcourse-content h4 {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-            height: 60px;
-            overflow: hidden;
-        }
-
-        .subcourse-price {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin: 10px 0;
+        .product-content {
+            padding: 25px;
         }
 
         /* Platinum Membership */
@@ -610,34 +621,14 @@
             margin: 0 auto 20px;
         }
 
-        /* Final CTA */
-        .final-cta {
-            padding: 100px 0;
-            text-align: center;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-        }
-
-        .final-cta h2 {
-            font-size: 2.8rem;
-            margin-bottom: 20px;
-        }
-
-        .final-cta p {
-            font-size: 1.2rem;
-            margin-bottom: 40px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* Modal */
-        .modal {
+        /* Payment Modal */
+        .payment-modal {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(0, 0, 0, 0.95);
             display: none;
             align-items: center;
             justify-content: center;
@@ -645,35 +636,201 @@
             padding: 20px;
         }
 
-        .modal-content {
+        .payment-content {
             background: white;
             border-radius: var(--border-radius);
             max-width: 500px;
             width: 100%;
             padding: 40px;
             position: relative;
+            text-align: center;
             animation: modalFadeIn 0.3s ease-out;
         }
 
-        .modal-close {
+        .payment-close {
             position: absolute;
             top: 20px;
             right: 20px;
             font-size: 1.5rem;
             cursor: pointer;
             color: var(--gray);
+            transition: var(--transition);
         }
 
-        .modal h3 {
+        .payment-close:hover {
+            color: var(--dark);
+            transform: rotate(90deg);
+        }
+
+        .payment-header {
+            margin-bottom: 30px;
+        }
+
+        .payment-header h3 {
             font-size: 1.8rem;
             margin-bottom: 10px;
+            color: var(--dark);
         }
 
-        .modal-price {
-            font-size: 2rem;
+        .payment-price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 15px 0;
+        }
+
+        .payment-qr {
+            width: 250px;
+            height: 250px;
+            margin: 20px auto;
+            background: var(--light);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px dashed var(--gray);
+            padding: 20px;
+        }
+
+        .payment-qr img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 5px;
+        }
+
+        .payment-timer {
+            font-size: 3rem;
             font-weight: 700;
             color: var(--primary);
             margin: 20px 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .timer-text {
+            color: var(--gray);
+            margin-bottom: 30px;
+        }
+
+        .payment-complete {
+            display: none;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid var(--gray-light);
+        }
+
+        .payment-complete.active {
+            display: block;
+            animation: fadeUp 0.5s ease;
+        }
+
+        /* Cart Sidebar */
+        .cart-sidebar {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 400px;
+            height: 100%;
+            background: white;
+            box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
+            z-index: 2000;
+            transition: var(--transition);
+            padding: 30px;
+            overflow-y: auto;
+        }
+
+        .cart-sidebar.active {
+            right: 0;
+        }
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--gray-light);
+        }
+
+        .cart-close {
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--gray);
+        }
+
+        .cart-items {
+            margin-bottom: 30px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .cart-item {
+            display: flex;
+            gap: 15px;
+            padding: 15px 0;
+            border-bottom: 1px solid var(--gray-light);
+        }
+
+        .cart-item-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 10px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .cart-item-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .cart-item-details {
+            flex: 1;
+        }
+
+        .cart-item-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .cart-item-price {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .cart-item-remove {
+            color: var(--accent);
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .cart-footer {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px solid var(--primary);
+        }
+
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .cart-empty {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--gray);
+        }
+
+        .cart-empty i {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--gray-light);
         }
 
         /* Footer */
@@ -721,6 +878,42 @@
             color: var(--gray);
         }
 
+        /* Search Results */
+        .search-results {
+            padding: 60px 0;
+            background: var(--light);
+            display: none;
+        }
+
+        .search-results.active {
+            display: block;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 60px;
+            color: var(--gray);
+        }
+
+        /* Notification */
+        .notification {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            background: var(--primary);
+            color: white;
+            padding: 15px 25px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-hover);
+            z-index: 4000;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .notification.show {
+            transform: translateX(0);
+        }
+
         /* Animations */
         @keyframes fadeUp {
             to {
@@ -752,14 +945,20 @@
             }
         }
 
+        @keyframes timerPulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
         /* Responsive */
         @media (max-width: 992px) {
-            .trust-grid {
-                grid-template-columns: repeat(2, 1fr);
+            .courses-grid {
+                grid-template-columns: repeat(3, 1fr);
             }
             
-            .subcourses-grid {
-                grid-template-columns: repeat(3, 1fr);
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
             
             .categories-grid {
@@ -771,9 +970,8 @@
                 align-items: center;
             }
             
-            .footer-content {
-                flex-direction: column;
-                gap: 40px;
+            .cart-sidebar {
+                width: 350px;
             }
         }
 
@@ -808,15 +1006,21 @@
             }
             
             .courses-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .subcourses-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
             
             .section-title {
                 font-size: 2rem;
+            }
+            
+            .cart-sidebar {
+                width: 100%;
+                right: -100%;
+            }
+            
+            .payment-qr {
+                width: 200px;
+                height: 200px;
             }
         }
 
@@ -826,7 +1030,11 @@
                 align-items: center;
             }
             
-            .subcourses-grid {
+            .courses-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .products-grid {
                 grid-template-columns: 1fr;
             }
             
@@ -834,12 +1042,28 @@
                 grid-template-columns: 1fr;
             }
             
-            .trust-grid {
-                grid-template-columns: 1fr;
-            }
-            
             .platinum h2 {
                 font-size: 2.2rem;
+            }
+            
+            .hero {
+                padding: 120px 0 60px;
+            }
+            
+            .payment-content {
+                padding: 25px;
+            }
+            
+            .payment-header h3 {
+                font-size: 1.5rem;
+            }
+            
+            .payment-price {
+                font-size: 2rem;
+            }
+            
+            .payment-timer {
+                font-size: 2.5rem;
             }
         }
     </style>
@@ -855,52 +1079,69 @@
                 <i class="fas fa-bars"></i>
             </div>
             <ul class="nav-menu" id="navMenu">
-                <li><a href="#courses" class="nav-link">Courses</a></li>
-                <li><a href="#categories" class="nav-link">Categories</a></li>
-                <li><a href="#popular" class="nav-link">Popular</a></li>
-                <li><a href="#platinum" class="nav-link">Platinum</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="#" class="nav-link active">Home</a></li>
+                <li><a href="#popular" class="nav-link">Courses</a></li>
+                <li><a href="#ebooks" class="nav-link">Ebooks</a></li>
+                <li><a href="#digital-products" class="nav-link">Digital Products</a></li>
+                <li class="cart-icon" id="cartIcon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </li>
             </ul>
         </div>
     </header>
 
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Your Cart</h3>
+            <div class="cart-close" id="cartClose">
+                <i class="fas fa-times"></i>
+            </div>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- Cart items will be dynamically generated -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cartTotalAmount">₹0</span>
+            </div>
+            <button class="btn btn-success" style="width: 100%;" id="checkoutBtn">Proceed to Checkout</button>
+        </div>
+    </div>
+
     <!-- Hero Section -->
     <section class="hero">
         <div class="container hero-content">
-            <h1>Learn High-Value Skills at Affordable Prices</h1>
-            <p>Video Editing • AI • YouTube • Finance • Career Skills</p>
+            <h1>Premium Digital Products Marketplace</h1>
+            <p>Courses • Ebooks • Digital Products • High-Value Skills</p>
             <div class="hero-btns">
-                <a href="https://t.me/coursebazaar33" target="_blank" class="btn btn-telegram btn-glow">
-                    <i class="fab fa-telegram"></i> JOIN TELEGRAM CHANNEL
+                <a href="#popular" class="btn btn-glow" id="exploreCoursesBtn">
+                    EXPLORE COURSES
                 </a>
+            </div>
+            <div class="search-container">
+                <div class="search-box">
+                    <input type="text" class="search-input" id="globalSearch" placeholder="Search courses, ebooks, digital products…">
+                    <div class="search-icon" id="searchIcon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Trust Indicators -->
-    <section class="trust">
+    <!-- Search Results -->
+    <section class="search-results" id="searchResults">
         <div class="container">
-            <div class="trust-grid">
-                <div class="trust-card">
-                    <i class="fas fa-graduation-cap"></i>
-                    <h3>4000+</h3>
-                    <p>Premium Courses</p>
-                </div>
-                <div class="trust-card">
-                    <i class="fas fa-bolt"></i>
-                    <h3>Instant</h3>
-                    <p>Access</p>
-                </div>
-                <div class="trust-card">
-                    <i class="fas fa-indian-rupee-sign"></i>
-                    <h3>Affordable</h3>
-                    <p>Pricing</p>
-                </div>
-                <div class="trust-card">
-                    <i class="fas fa-infinity"></i>
-                    <h3>Lifetime</h3>
-                    <p>Learning</p>
-                </div>
+            <h2 class="section-title">Search Results</h2>
+            <div class="courses-grid" id="searchResultsGrid">
+                <!-- Search results will be dynamically generated -->
+            </div>
+            <div class="no-results" id="noResults" style="display: none;">
+                <h3>No products found</h3>
+                <p>Try searching with different keywords</p>
             </div>
         </div>
     </section>
@@ -909,29 +1150,8 @@
     <section class="popular" id="popular">
         <div class="container">
             <h2 class="section-title">Popular Courses</h2>
-            <div class="courses-grid">
-                <div class="course-card">
-                    <div class="course-img">
-                        <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Video Editing Course">
-                    </div>
-                    <div class="course-content">
-                        <h3>XO Multimedia – Video Editor's Launchpad</h3>
-                        <p>Master professional video editing with this comprehensive course designed for beginners and intermediates.</p>
-                        <div class="course-price">₹499</div>
-                        <button class="btn btn-view-details" data-course="XO Multimedia – Video Editor's Launchpad" data-price="₹499">View Details</button>
-                    </div>
-                </div>
-                <div class="course-card">
-                    <div class="course-img">
-                        <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="AI & YouTube Course">
-                    </div>
-                    <div class="course-content">
-                        <h3>Dhruv Rathee – AI & YouTube Courses</h3>
-                        <p>Learn AI tools and YouTube strategies from one of India's top educators.</p>
-                        <div class="course-price">Starting ₹199</div>
-                        <button class="btn btn-view-details" data-course="Dhruv Rathee – AI & YouTube Courses" data-price="Starting ₹199">View Details</button>
-                    </div>
-                </div>
+            <div class="courses-grid" id="popularCoursesGrid">
+                <!-- Popular courses will be dynamically generated -->
             </div>
         </div>
     </section>
@@ -939,75 +1159,49 @@
     <!-- Course Categories -->
     <section class="categories" id="categories">
         <div class="container">
-            <h2 class="section-title">Browse Courses by Category</h2>
-            <div class="categories-grid">
-                <div class="category-card" data-category="youtube">
-                    <i class="fab fa-youtube"></i>
-                    <h3>YouTube Courses</h3>
-                    <p>Master YouTube growth, monetization & content creation</p>
-                    <span class="btn" style="margin-top: 15px; padding: 8px 20px; font-size: 14px;">Browse Courses →</span>
+            <h2 class="section-title">Browse by Category</h2>
+            <div class="categories-grid" id="categoriesGrid">
+                <!-- Categories will be dynamically generated -->
+            </div>
+            
+            <!-- Category Courses Sections -->
+            <div class="category-courses" id="webdevCourses">
+                <h3>Web Development Courses</h3>
+                <div class="courses-grid" id="webdevGrid">
+                    <!-- Web dev courses will be dynamically generated -->
                 </div>
-                <div class="category-card" data-category="video-editing">
-                    <i class="fas fa-film"></i>
-                    <h3>Video Editing Courses</h3>
-                    <p>Learn professional editing with Premiere Pro, After Effects & more</p>
-                    <span class="btn" style="margin-top: 15px; padding: 8px 20px; font-size: 14px;">Browse Courses →</span>
+            </div>
+            
+            <div class="category-courses" id="videoCourses">
+                <h3>Video Editing Courses</h3>
+                <div class="courses-grid" id="videoGrid">
+                    <!-- Video editing courses will be dynamically generated -->
                 </div>
-                <div class="category-card">
-                    <i class="fas fa-camera"></i>
-                    <h3>IG Creator</h3>
-                    <p>Instagram content creation, reels, and growth strategies</p>
-                </div>
-                <div class="category-card">
-                    <i class="fas fa-chart-line"></i>
-                    <h3>Trading</h3>
-                    <p>Stock market, cryptocurrency, and forex trading courses</p>
-                </div>
-                <div class="category-card">
-                    <i class="fas fa-code"></i>
-                    <h3>Web Development</h3>
-                    <p>Full-stack development, frontend, backend, and frameworks</p>
-                </div>
-                <div class="category-card">
-                    <i class="fas fa-brain"></i>
-                    <h3>Self Improvement</h3>
-                    <p>Productivity, communication, and personal growth courses</p>
-                </div>
+            </div>
+            
+            <!-- More category sections will be dynamically generated -->
+        </div>
+    </section>
+
+    <!-- Ebooks Section -->
+    <section class="digital-products" id="ebooks">
+        <div class="container">
+            <h2 class="section-title">Premium Ebooks</h2>
+            <div class="products-grid" id="ebooksGrid">
+                <!-- Ebooks will be dynamically generated -->
             </div>
         </div>
     </section>
 
-    <!-- YouTube Courses Expansion -->
-    <div class="category-expansion" id="youtube-expansion">
+    <!-- Digital Products -->
+    <section class="digital-products" id="digital-products">
         <div class="container">
-            <div class="close-category" id="closeYoutube">
-                <i class="fas fa-times"></i>
-            </div>
-            <div class="category-header">
-                <h2><i class="fab fa-youtube"></i> YouTube Courses</h2>
-                <p>Master YouTube growth, content creation, and monetization with our specialized courses</p>
-            </div>
-            <div class="subcourses-grid">
-                <!-- YouTube sub-courses will be dynamically generated -->
+            <h2 class="section-title">Digital Products</h2>
+            <div class="products-grid" id="productsGrid">
+                <!-- Digital products will be dynamically generated -->
             </div>
         </div>
-    </div>
-
-    <!-- Video Editing Courses Expansion -->
-    <div class="category-expansion" id="video-editing-expansion">
-        <div class="container">
-            <div class="close-category" id="closeVideoEditing">
-                <i class="fas fa-times"></i>
-            </div>
-            <div class="category-header">
-                <h2><i class="fas fa-film"></i> Video Editing Courses</h2>
-                <p>Professional video editing courses for all skill levels and software</p>
-            </div>
-            <div class="subcourses-grid">
-                <!-- Video editing sub-courses will be dynamically generated -->
-            </div>
-        </div>
-    </div>
+    </section>
 
     <!-- Platinum Membership -->
     <section class="platinum" id="platinum">
@@ -1032,9 +1226,9 @@
                     </div>
                 </div>
                 
-                <a href="https://t.me/coursebazaar33" target="_blank" class="btn btn-platinum btn-glow" style="font-size: 1.2rem; padding: 18px 40px;">
-                    <i class="fas fa-crown"></i> JOIN PLATINUM NOW
-                </a>
+                <button class="btn btn-platinum btn-glow" id="platinumBtn" style="font-size: 1.2rem; padding: 18px 40px;">
+                    <i class="fas fa-crown"></i> GET PLATINUM ACCESS
+                </button>
             </div>
         </div>
     </section>
@@ -1046,47 +1240,55 @@
             <div class="steps">
                 <div class="step">
                     <div class="step-icon">1</div>
-                    <h3>Join Telegram Channel</h3>
-                    <p>Join our Telegram channel @coursebazaar33 to browse available courses</p>
+                    <h3>Browse & Select</h3>
+                    <p>Choose from 4000+ premium courses, ebooks, and digital products</p>
                 </div>
                 <div class="step">
                     <div class="step-icon">2</div>
-                    <h3>Choose Your Course</h3>
-                    <p>Select the course you want to purchase from our extensive catalog</p>
+                    <h3>Add to Cart</h3>
+                    <p>Select your desired products and add them to your cart</p>
                 </div>
                 <div class="step">
                     <div class="step-icon">3</div>
-                    <h3>Pay via UPI & Get Access</h3>
-                    <p>Complete payment via UPI and get instant access to your course</p>
+                    <h3>Pay & Get Access</h3>
+                    <p>Complete payment and get instant access to your purchases</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Final CTA -->
-    <section class="final-cta" id="contact">
-        <div class="container">
-            <h2>JOIN TELEGRAM & START LEARNING TODAY</h2>
-            <p>Access 4000+ premium courses at affordable prices with instant delivery and lifetime access. Join our community of learners now!</p>
-            <a href="https://t.me/coursebazaar33" target="_blank" class="btn btn-telegram btn-glow" style="font-size: 1.2rem; padding: 18px 40px;">
-                <i class="fab fa-telegram"></i> @coursebazaar33
-            </a>
-        </div>
-    </section>
-
-    <!-- Buy Modal -->
-    <div class="modal" id="buyModal">
-        <div class="modal-content">
-            <div class="modal-close" id="modalClose">
+    <!-- Payment Modal -->
+    <div class="payment-modal" id="paymentModal">
+        <div class="payment-content">
+            <div class="payment-close" id="paymentClose">
                 <i class="fas fa-times"></i>
             </div>
-            <h3 id="modalCourseTitle">Course Title</h3>
-            <div class="modal-price" id="modalCoursePrice">₹499</div>
-            <p>You will be redirected to Telegram to complete your purchase.</p>
-            <a href="https://t.me/coursebazaar33" target="_blank" class="btn btn-telegram" style="width: 100%; margin-top: 30px; padding: 16px;">
-                <i class="fab fa-telegram"></i> CONTINUE TO TELEGRAM
-            </a>
+            <div class="payment-header">
+                <h3 id="paymentProductTitle">Product Title</h3>
+                <div class="payment-price" id="paymentProductPrice">₹0</div>
+            </div>
+            
+            <p>Scan the QR code to complete payment</p>
+            
+            <div class="payment-qr">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=CourseBazaar-Payment-OrderID-12345&format=png&margin=10&color=4361ee&bgcolor=ffffff" alt="Payment QR Code">
+            </div>
+            
+            <div class="payment-timer" id="paymentTimer">30</div>
+            <p class="timer-text">Complete payment within <strong>30 seconds</strong></p>
+            
+            <div class="payment-complete" id="paymentComplete">
+                <h4>Payment submitted?</h4>
+                <a href="https://t.me/coursebazaar33" target="_blank" class="btn btn-telegram" style="margin-top: 20px; width: 100%;">
+                    <i class="fab fa-telegram"></i> Ask Admin for Access
+                </a>
+            </div>
         </div>
+    </div>
+
+    <!-- Notification -->
+    <div class="notification" id="notification">
+        <div id="notificationMessage">Product added to cart!</div>
     </div>
 
     <!-- Footer -->
@@ -1095,16 +1297,16 @@
             <div class="footer-content">
                 <div class="footer-info">
                     <div class="footer-logo">Course Bazaar</div>
-                    <p>Premium course marketplace with 4000+ courses across multiple categories. Learn high-value skills at affordable prices.</p>
+                    <p>Premium digital marketplace with 4000+ courses, ebooks, and digital products. Learn high-value skills at affordable prices.</p>
                 </div>
                 <div class="footer-links">
                     <div class="footer-column">
                         <h4>Quick Links</h4>
                         <ul>
                             <li><a href="#popular">Popular Courses</a></li>
-                            <li><a href="#categories">Categories</a></li>
+                            <li><a href="#ebooks">Ebooks</a></li>
+                            <li><a href="#digital-products">Digital Products</a></li>
                             <li><a href="#platinum">Platinum Membership</a></li>
-                            <li><a href="#contact">Contact</a></li>
                         </ul>
                     </div>
                     <div class="footer-column">
@@ -1125,100 +1327,313 @@
     </footer>
 
     <script>
-        // Course data with images
-        const youtubeCourses = [
-            { title: "YouTube Automation Mastery", price: "₹999", image: "https://images.unsplash.com/photo-1611162618071-b39a2ec055fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
-            { title: "Faceless YouTube Channel", price: "₹799", image: "https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
-            { title: "YouTube Shorts Growth", price: "₹599", image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
-            { title: "YouTube SEO Course", price: "₹899", image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
-            { title: "Monetization Blueprint", price: "₹1199", image: "https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
-            { title: "Channel Growth & Scaling", price: "₹1299", image: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
-            { title: "Content Strategy", price: "₹699", image: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
-            { title: "Scriptwriting for YouTube", price: "₹499", image: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
-            { title: "AI Tools for YouTube", price: "₹899", image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
-            { title: "Thumbnail Design Course", price: "₹399", image: "https://images.unsplash.com/photo-1563089145-599997674d42?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
-            { title: "YouTube Analytics Masterclass", price: "₹599", image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" }
-        ];
-
-        const videoEditingCourses = [
-            { title: "Beginner Video Editing", price: "₹299", image: "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
-            { title: "Premiere Pro Mastery", price: "₹1499", image: "https://images.unsplash.com/photo-1626785774573-4b799315345d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
-            { title: "After Effects Basics", price: "₹999", image: "https://images.unsplash.com/photo-1622550275806-3a5b5d5c4b0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
-            { title: "CapCut Advanced", price: "₹499", image: "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
-            { title: "Reels & Shorts Editing", price: "₹599", image: "https://images.unsplash.com/photo-1611605698323-b1e99cfd37ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
-            { title: "YouTube Long-Form Editing", price: "₹799", image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
-            { title: "Documentary Editing", price: "₹999", image: "https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
-            { title: "Color Grading Mastery", price: "₹899", image: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
-            { title: "AI Video Editing", price: "₹1199", image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" }
-        ];
+        // Course and Product Data
+        const courseData = {
+            popular: [
+                { id: 1, title: "Complete Web Development Bootcamp 2024", category: "web-dev", price: 1499, rating: 4.5, image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
+                { id: 2, title: "Advanced Video Editing Masterclass", category: "video-editing", price: 1999, rating: 4.7, image: "https://images.unsplash.com/photo-1626785774573-4b799315345d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
+                { id: 3, title: "AI & Machine Learning Fundamentals", category: "ai", price: 2499, rating: 4.8, image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
+                { id: 4, title: "Digital Marketing Complete Course", category: "marketing", price: 1299, rating: 4.4, image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
+                { id: 5, title: "Data Science & Analytics Bootcamp", category: "data-science", price: 2999, rating: 4.9, image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
+                { id: 6, title: "Mobile App Development with React Native", category: "mobile-dev", price: 1799, rating: 4.6, image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
+                { id: 7, title: "UI/UX Design from Zero to Hero", category: "design", price: 1599, rating: 4.7, image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
+                { id: 8, title: "YouTube Growth & Monetization 2024", category: "youtube", price: 899, rating: 4.3, image: "https://images.unsplash.com/photo-1611162618071-b39a2ec055fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" }
+            ],
+            
+            categories: [
+                { id: "web-dev", name: "Web Development", icon: "fas fa-code", color: "#4361ee" },
+                { id: "video-editing", name: "Video Editing", icon: "fas fa-film", color: "#f72585" },
+                { id: "ai", name: "AI & Data Science", icon: "fas fa-brain", color: "#4cc9f0" },
+                { id: "marketing", name: "Digital Marketing", icon: "fas fa-bullhorn", color: "#3a0ca3" },
+                { id: "freelancing", name: "Freelancing", icon: "fas fa-briefcase", color: "#4895ef" },
+                { id: "design", name: "UI/UX Design", icon: "fas fa-palette", color: "#7209b7" }
+            ],
+            
+            coursesByCategory: {
+                "web-dev": [
+                    { id: 101, title: "Frontend Development with React", price: 999, rating: 4.5, image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
+                    { id: 102, title: "Backend Development with Node.js", price: 1199, rating: 4.6, image: "https://images.unsplash.com/photo-1627398242454-45a1465c2479?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
+                    { id: 103, title: "Full Stack MERN Development", price: 1999, rating: 4.8, image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
+                    { id: 104, title: "JavaScript Mastery", price: 899, rating: 4.4, image: "https://images.unsplash.com/photo-1627398242454-45a1465c2479?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
+                    { id: 105, title: "Python Django Development", price: 1499, rating: 4.7, image: "https://images.unsplash.com/photo-1526379879527-8559ecfcaec5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
+                    { id: 106, title: "API Development & Integration", price: 1299, rating: 4.5, image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
+                    { id: 107, title: "Database Design & Management", price: 1099, rating: 4.3, image: "https://images.unsplash.com/photo-1557456170-0cf4f4d0d362?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
+                    { id: 108, title: "DevOps & Deployment", price: 1799, rating: 4.9, image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" }
+                ],
+                "video-editing": [
+                    { id: 201, title: "Premiere Pro Complete Guide", price: 1499, rating: 4.6, image: "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
+                    { id: 202, title: "After Effects for Beginners", price: 1299, rating: 4.5, image: "https://images.unsplash.com/photo-1622550275806-3a5b5d5c4b0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
+                    { id: 203, title: "Final Cut Pro X Mastery", price: 1699, rating: 4.7, image: "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
+                    { id: 204, title: "DaVinci Resolve Color Grading", price: 1399, rating: 4.8, image: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
+                    { id: 205, title: "Motion Graphics Design", price: 1899, rating: 4.6, image: "https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
+                    { id: 206, title: "YouTube Video Editing", price: 899, rating: 4.4, image: "https://images.unsplash.com/photo-1611605698323-b1e99cfd37ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
+                    { id: 207, title: "Social Media Reels Editing", price: 799, rating: 4.3, image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
+                    { id: 208, title: "Documentary Film Editing", price: 1999, rating: 4.9, image: "https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" }
+                ]
+            },
+            
+            ebooks: [
+                { id: 301, title: "The Complete Freelancing Guide", price: 299, rating: 4.5, image: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", type: "ebook" },
+                { id: 302, title: "Digital Marketing Playbook 2024", price: 399, rating: 4.6, image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", type: "ebook" },
+                { id: 303, title: "Investment Strategies for Beginners", price: 499, rating: 4.7, image: "https://images.unsplash.com/photo-1642790553124-4c56d74c5a65?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", type: "ebook" },
+                { id: 304, title: "AI Tools Guide for Content Creators", price: 349, rating: 4.8, image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", type: "ebook" },
+                { id: 305, title: "Productivity & Time Management", price: 249, rating: 4.4, image: "https://images.unsplash.com/photo-1587614382346-4ec70e388b28?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", type: "ebook" },
+                { id: 306, title: "Passive Income Blueprint", price: 599, rating: 4.9, image: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", type: "ebook" }
+            ],
+            
+            digitalProducts: [
+                { id: 401, title: "Premium YouTube Thumbnail Pack", price: 199, rating: 4.5, image: "https://images.unsplash.com/photo-1563089145-599997674d42?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", type: "digital" },
+                { id: 402, title: "Instagram Reels Templates", price: 149, rating: 4.4, image: "https://images.unsplash.com/photo-1611605698323-b1e99cfd37ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", type: "digital" },
+                { id: 403, title: "Business Presentation Templates", price: 299, rating: 4.6, image: "https://images.unsplash.com/photo-1497032628192-86f99bcd76bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", type: "digital" },
+                { id: 404, title: "Logo Design Kit", price: 399, rating: 4.7, image: "https://images.unsplash.com/photo-1545235617-9465d2a55698?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", type: "digital" },
+                { id: 405, title: "Social Media Content Calendar", price: 249, rating: 4.3, image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", type: "digital" },
+                { id: 406, title: "Website UI Kit Bundle", price: 499, rating: 4.8, image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", type: "digital" }
+            ]
+        };
 
         // DOM elements
         const header = document.getElementById('header');
         const mobileToggle = document.getElementById('mobileToggle');
         const navMenu = document.getElementById('navMenu');
-        const trustCards = document.querySelectorAll('.trust-card');
-        const courseCards = document.querySelectorAll('.course-card');
-        const categoryCards = document.querySelectorAll('.category-card');
-        const steps = document.querySelectorAll('.step');
-        const youtubeExpansion = document.getElementById('youtube-expansion');
-        const videoEditingExpansion = document.getElementById('video-editing-expansion');
-        const closeYoutube = document.getElementById('closeYoutube');
-        const closeVideoEditing = document.getElementById('closeVideoEditing');
-        const buyModal = document.getElementById('buyModal');
-        const modalClose = document.getElementById('modalClose');
-        const modalCourseTitle = document.getElementById('modalCourseTitle');
-        const modalCoursePrice = document.getElementById('modalCoursePrice');
-        const viewDetailsBtns = document.querySelectorAll('.btn-view-details');
+        const cartIcon = document.getElementById('cartIcon');
+        const cartCount = document.getElementById('cartCount');
+        const cartSidebar = document.getElementById('cartSidebar');
+        const cartClose = document.getElementById('cartClose');
+        const cartItems = document.getElementById('cartItems');
+        const cartTotalAmount = document.getElementById('cartTotalAmount');
+        const checkoutBtn = document.getElementById('checkoutBtn');
+        const exploreCoursesBtn = document.getElementById('exploreCoursesBtn');
+        const globalSearch = document.getElementById('globalSearch');
+        const searchIcon = document.getElementById('searchIcon');
+        const searchResults = document.getElementById('searchResults');
+        const searchResultsGrid = document.getElementById('searchResultsGrid');
+        const noResults = document.getElementById('noResults');
+        const popularCoursesGrid = document.getElementById('popularCoursesGrid');
+        const categoriesGrid = document.getElementById('categoriesGrid');
+        const ebooksGrid = document.getElementById('ebooksGrid');
+        const productsGrid = document.getElementById('productsGrid');
+        const platinumBtn = document.getElementById('platinumBtn');
+        const paymentModal = document.getElementById('paymentModal');
+        const paymentClose = document.getElementById('paymentClose');
+        const paymentTimer = document.getElementById('paymentTimer');
+        const paymentComplete = document.getElementById('paymentComplete');
+        const paymentProductTitle = document.getElementById('paymentProductTitle');
+        const paymentProductPrice = document.getElementById('paymentProductPrice');
+        const notification = document.getElementById('notification');
+        const notificationMessage = document.getElementById('notificationMessage');
         
-        // YouTube and Video Editing category grids
-        const youtubeGrid = document.querySelector('#youtube-expansion .subcourses-grid');
-        const videoEditingGrid = document.querySelector('#video-editing-expansion .subcourses-grid');
+        // Global variables
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        let paymentTimerInterval = null;
+        let currentPaymentItem = null;
 
         // Initialize the website
         document.addEventListener('DOMContentLoaded', function() {
-            // Generate YouTube course cards with images
-            youtubeCourses.forEach(course => {
-                const card = document.createElement('div');
-                card.className = 'subcourse-card';
-                card.innerHTML = `
-                    <div class="subcourse-img">
-                        <img src="${course.image}" alt="${course.title}">
-                    </div>
-                    <div class="subcourse-content">
-                        <h4>${course.title}</h4>
-                        <div class="subcourse-price">${course.price}</div>
-                        <button class="btn" data-course="${course.title}" data-price="${course.price}">BUY</button>
-                    </div>
-                `;
-                youtubeGrid.appendChild(card);
-            });
+            // Generate Popular Courses
+            generatePopularCourses();
+            
+            // Generate Categories
+            generateCategories();
+            
+            // Generate Ebooks
+            generateEbooks();
+            
+            // Generate Digital Products
+            generateDigitalProducts();
+            
+            // Generate Category Courses
+            generateCategoryCourses();
+            
+            // Update cart count
+            updateCartCount();
+            
+            // Event listeners
+            setupEventListeners();
+            
+            // Initial animation
+            setTimeout(() => {
+                animateOnScroll();
+            }, 500);
+        });
 
-            // Generate Video Editing course cards with images
-            videoEditingCourses.forEach(course => {
-                const card = document.createElement('div');
-                card.className = 'subcourse-card';
-                card.innerHTML = `
-                    <div class="subcourse-img">
-                        <img src="${course.image}" alt="${course.title}">
-                    </div>
-                    <div class="subcourse-content">
-                        <h4>${course.title}</h4>
-                        <div class="subcourse-price">${course.price}</div>
-                        <button class="btn" data-course="${course.title}" data-price="${course.price}">BUY</button>
-                    </div>
-                `;
-                videoEditingGrid.appendChild(card);
+        // Generate Popular Courses
+        function generatePopularCourses() {
+            courseData.popular.forEach(course => {
+                const card = createCourseCard(course);
+                popularCoursesGrid.appendChild(card);
             });
+        }
 
-            // Add event listeners to dynamically generated BUY buttons
-            document.addEventListener('click', function(e) {
-                if (e.target.classList.contains('btn') && e.target.textContent === 'BUY') {
-                    const course = e.target.getAttribute('data-course');
-                    const price = e.target.getAttribute('data-price');
-                    openBuyModal(course, price);
+        // Generate Categories
+        function generateCategories() {
+            courseData.categories.forEach(category => {
+                const card = document.createElement('div');
+                card.className = 'category-card';
+                card.setAttribute('data-category', category.id);
+                card.innerHTML = `
+                    <i class="${category.icon}" style="color: ${category.color}"></i>
+                    <h3>${category.name}</h3>
+                    <p>Browse our collection of ${category.name.toLowerCase()} courses</p>
+                    <span class="btn" style="margin-top: 15px; padding: 8px 20px; font-size: 14px;">Browse Courses →</span>
+                `;
+                categoriesGrid.appendChild(card);
+                
+                // Add click event to category cards
+                card.addEventListener('click', function() {
+                    const categoryId = this.getAttribute('data-category');
+                    showCategoryCourses(categoryId);
+                });
+            });
+        }
+
+        // Generate Ebooks
+        function generateEbooks() {
+            courseData.ebooks.forEach(ebook => {
+                const card = createProductCard(ebook);
+                ebooksGrid.appendChild(card);
+            });
+        }
+
+        // Generate Digital Products
+        function generateDigitalProducts() {
+            courseData.digitalProducts.forEach(product => {
+                const card = createProductCard(product);
+                productsGrid.appendChild(card);
+            });
+        }
+
+        // Generate Category Courses
+        function generateCategoryCourses() {
+            const webdevGrid = document.getElementById('webdevGrid');
+            const videoGrid = document.getElementById('videoGrid');
+            
+            if (webdevGrid) {
+                courseData.coursesByCategory['web-dev'].forEach(course => {
+                    const card = createCourseCard(course);
+                    webdevGrid.appendChild(card);
+                });
+            }
+            
+            if (videoGrid) {
+                courseData.coursesByCategory['video-editing'].forEach(course => {
+                    const card = createCourseCard(course);
+                    videoGrid.appendChild(card);
+                });
+            }
+        }
+
+        // Create Course Card
+        function createCourseCard(course) {
+            const card = document.createElement('div');
+            card.className = 'course-card';
+            card.setAttribute('data-title', course.title.toLowerCase());
+            card.setAttribute('data-category', course.category || '');
+            card.innerHTML = `
+                <div class="course-img">
+                    <img src="${course.image}" alt="${course.title}">
+                </div>
+                <div class="course-content">
+                    <h3>${course.title}</h3>
+                    <div class="course-rating">
+                        ${generateStars(course.rating)}
+                        <span style="color: var(--gray); margin-left: 5px;">${course.rating}</span>
+                    </div>
+                    <div class="course-price">₹${course.price}</div>
+                    <div class="course-actions">
+                        <button class="btn btn-outline add-to-cart" 
+                                data-id="${course.id}" 
+                                data-title="${course.title}" 
+                                data-price="${course.price}" 
+                                data-image="${course.image}">
+                            Add to Cart
+                        </button>
+                        <button class="btn btn-success buy-now" 
+                                data-id="${course.id}" 
+                                data-title="${course.title}" 
+                                data-price="${course.price}" 
+                                data-image="${course.image}">
+                            Buy Now
+                        </button>
+                    </div>
+                </div>
+            `;
+            return card;
+        }
+
+        // Create Product Card
+        function createProductCard(product) {
+            const card = document.createElement('div');
+            card.className = 'product-card';
+            card.setAttribute('data-title', product.title.toLowerCase());
+            card.setAttribute('data-type', product.type);
+            card.innerHTML = `
+                <div class="product-img">
+                    <img src="${product.image}" alt="${product.title}">
+                </div>
+                <div class="product-content">
+                    <h3>${product.title}</h3>
+                    <div class="course-rating">
+                        ${generateStars(product.rating)}
+                        <span style="color: var(--gray); margin-left: 5px;">${product.rating}</span>
+                    </div>
+                    <div class="course-price">₹${product.price}</div>
+                    <div class="course-actions">
+                        <button class="btn btn-outline add-to-cart" 
+                                data-id="${product.id}" 
+                                data-title="${product.title}" 
+                                data-price="${product.price}" 
+                                data-image="${product.image}" 
+                                data-type="${product.type}">
+                            Add to Cart
+                        </button>
+                        <button class="btn btn-success buy-now" 
+                                data-id="${product.id}" 
+                                data-title="${product.title}" 
+                                data-price="${product.price}" 
+                                data-image="${product.image}" 
+                                data-type="${product.type}">
+                            Buy Now
+                        </button>
+                    </div>
+                </div>
+            `;
+            return card;
+        }
+
+        // Generate star ratings
+        function generateStars(rating) {
+            let stars = '';
+            for (let i = 1; i <= 5; i++) {
+                if (i <= Math.floor(rating)) {
+                    stars += '<i class="fas fa-star"></i>';
+                } else if (i === Math.ceil(rating) && rating % 1 !== 0) {
+                    stars += '<i class="fas fa-star-half-alt"></i>';
+                } else {
+                    stars += '<i class="far fa-star"></i>';
                 }
-            });
+            }
+            return stars;
+        }
 
+        // Show category courses
+        function showCategoryCourses(categoryId) {
+            // Hide all category course sections
+            document.querySelectorAll('.category-courses').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Show the selected category
+            const categorySection = document.getElementById(categoryId + 'Courses');
+            if (categorySection) {
+                categorySection.classList.add('active');
+                
+                // Smooth scroll to the category
+                categorySection.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Setup event listeners
+        function setupEventListeners() {
             // Header scroll effect
             window.addEventListener('scroll', function() {
                 if (window.scrollY > 50) {
@@ -1226,8 +1641,6 @@
                 } else {
                     header.classList.remove('scrolled');
                 }
-                
-                // Animate elements on scroll
                 animateOnScroll();
             });
 
@@ -1240,139 +1653,352 @@
 
             // Close mobile menu when clicking a link
             document.querySelectorAll('.nav-link').forEach(link => {
-                link.addEventListener('click', function() {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
                     navMenu.classList.remove('active');
                     mobileToggle.innerHTML = '<i class="fas fa-bars"></i>';
-                });
-            });
-
-            // Category expansion
-            document.querySelectorAll('.category-card').forEach(card => {
-                card.addEventListener('click', function() {
-                    const category = this.getAttribute('data-category');
-                    if (category === 'youtube') {
-                        youtubeExpansion.style.display = 'block';
-                        document.body.style.overflow = 'hidden';
-                    } else if (category === 'video-editing') {
-                        videoEditingExpansion.style.display = 'block';
-                        document.body.style.overflow = 'hidden';
+                    
+                    // Update active state
+                    document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Smooth scroll to section
+                    const targetId = this.getAttribute('href');
+                    if (targetId && targetId !== '#') {
+                        const targetElement = document.querySelector(targetId);
+                        if (targetElement) {
+                            window.scrollTo({
+                                top: targetElement.offsetTop - 80,
+                                behavior: 'smooth'
+                            });
+                        }
                     }
                 });
             });
 
-            // Close category expansion
-            closeYoutube.addEventListener('click', function() {
-                youtubeExpansion.style.display = 'none';
-                document.body.style.overflow = 'auto';
+            // Explore courses button
+            exploreCoursesBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.getElementById('popular').scrollIntoView({ behavior: 'smooth' });
             });
 
-            closeVideoEditing.addEventListener('click', function() {
-                videoEditingExpansion.style.display = 'none';
-                document.body.style.overflow = 'auto';
+            // Cart icon click
+            cartIcon.addEventListener('click', function() {
+                cartSidebar.classList.add('active');
+                updateCartDisplay();
             });
 
-            // View Details buttons
-            viewDetailsBtns.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const course = this.getAttribute('data-course');
-                    const price = this.getAttribute('data-price');
-                    openBuyModal(course, price);
-                });
+            // Close cart
+            cartClose.addEventListener('click', function() {
+                cartSidebar.classList.remove('active');
             });
 
-            // Modal close
-            modalClose.addEventListener('click', function() {
-                buyModal.style.display = 'none';
+            // Checkout button
+            checkoutBtn.addEventListener('click', function() {
+                if (cart.length === 0) {
+                    showNotification('Your cart is empty!');
+                    return;
+                }
+                cartSidebar.classList.remove('active');
+                openPaymentModal('Cart Checkout', calculateCartTotal());
+            });
+
+            // Platinum button
+            platinumBtn.addEventListener('click', function() {
+                openPaymentModal('Platinum Membership - Full Access', 4999);
+            });
+
+            // Search functionality
+            searchIcon.addEventListener('click', performSearch);
+            globalSearch.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    performSearch();
+                }
+            });
+
+            // Add to cart and Buy Now buttons (delegated)
+            document.addEventListener('click', function(e) {
+                // Add to cart button
+                if (e.target.classList.contains('add-to-cart') || 
+                    e.target.closest('.add-to-cart')) {
+                    const button = e.target.classList.contains('add-to-cart') ? 
+                                 e.target : e.target.closest('.add-to-cart');
+                    
+                    const id = button.getAttribute('data-id');
+                    const title = button.getAttribute('data-title');
+                    const price = parseInt(button.getAttribute('data-price'));
+                    const image = button.getAttribute('data-image');
+                    const type = button.getAttribute('data-type') || 'course';
+                    
+                    addToCart({ id, title, price, image, type });
+                }
+                
+                // Buy Now button
+                if (e.target.classList.contains('buy-now') || 
+                    e.target.closest('.buy-now')) {
+                    const button = e.target.classList.contains('buy-now') ? 
+                                 e.target : e.target.closest('.buy-now');
+                    
+                    const id = button.getAttribute('data-id');
+                    const title = button.getAttribute('data-title');
+                    const price = button.getAttribute('data-price');
+                    const image = button.getAttribute('data-image');
+                    const type = button.getAttribute('data-type') || 'course';
+                    
+                    // Clear cart and add only this item
+                    cart = [{ id, title, price: parseInt(price), image, type, quantity: 1 }];
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    updateCartCount();
+                    
+                    openPaymentModal(title, price);
+                }
+                
+                // Remove from cart button
+                if (e.target.classList.contains('remove-from-cart') || 
+                    e.target.closest('.remove-from-cart')) {
+                    const button = e.target.classList.contains('remove-from-cart') ? 
+                                 e.target : e.target.closest('.remove-from-cart');
+                    const id = button.getAttribute('data-id');
+                    removeFromCart(id);
+                }
+            });
+
+            // Payment modal close
+            paymentClose.addEventListener('click', function() {
+                closePaymentModal();
             });
 
             // Close modal when clicking outside
             window.addEventListener('click', function(e) {
-                if (e.target === buyModal) {
-                    buyModal.style.display = 'none';
+                if (e.target === paymentModal) {
+                    closePaymentModal();
                 }
             });
 
             // Smooth scrolling for anchor links
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href');
-                    if (targetId === '#') return;
-                    
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 80,
-                            behavior: 'smooth'
-                        });
-                    }
+                if (!anchor.classList.contains('nav-link')) {
+                    anchor.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const targetId = this.getAttribute('href');
+                        if (targetId === '#') return;
+                        
+                        const targetElement = document.querySelector(targetId);
+                        if (targetElement) {
+                            window.scrollTo({
+                                top: targetElement.offsetTop - 80,
+                                behavior: 'smooth'
+                            });
+                        }
+                    });
+                }
+            });
+        }
+
+        // Add to cart function
+        function addToCart(item) {
+            // Check if item already exists in cart
+            const existingItemIndex = cart.findIndex(cartItem => cartItem.id === item.id);
+            
+            if (existingItemIndex > -1) {
+                cart[existingItemIndex].quantity += 1;
+            } else {
+                item.quantity = 1;
+                cart.push(item);
+            }
+            
+            // Update localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+            
+            // Update UI
+            updateCartCount();
+            
+            // Show feedback
+            showNotification(`"${item.title}" added to cart!`);
+        }
+
+        // Remove from cart
+        function removeFromCart(id) {
+            cart = cart.filter(item => item.id !== id);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartCount();
+            updateCartDisplay();
+            showNotification('Item removed from cart');
+        }
+
+        // Update cart count
+        function updateCartCount() {
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartCount.textContent = totalItems;
+        }
+
+        // Update cart display
+        function updateCartDisplay() {
+            cartItems.innerHTML = '';
+            
+            if (cart.length === 0) {
+                cartItems.innerHTML = `
+                    <div class="cart-empty">
+                        <i class="fas fa-shopping-cart"></i>
+                        <h4>Your cart is empty</h4>
+                        <p>Add some products to get started</p>
+                    </div>
+                `;
+                cartTotalAmount.textContent = '₹0';
+                checkoutBtn.textContent = 'Proceed to Checkout';
+                return;
+            }
+            
+            let total = 0;
+            
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+                
+                const itemElement = document.createElement('div');
+                itemElement.className = 'cart-item';
+                itemElement.innerHTML = `
+                    <div class="cart-item-img">
+                        <img src="${item.image}" alt="${item.title}">
+                    </div>
+                    <div class="cart-item-details">
+                        <div class="cart-item-title">${item.title}</div>
+                        <div class="cart-item-price">₹${item.price} × ${item.quantity} = ₹${itemTotal}</div>
+                    </div>
+                    <button class="cart-item-remove remove-from-cart" data-id="${item.id}">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                `;
+                cartItems.appendChild(itemElement);
+            });
+            
+            cartTotalAmount.textContent = `₹${total}`;
+            checkoutBtn.textContent = `Checkout - ₹${total}`;
+        }
+
+        // Calculate cart total
+        function calculateCartTotal() {
+            return cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+        }
+
+        // Search functionality
+        function performSearch() {
+            const query = globalSearch.value.toLowerCase().trim();
+            
+            if (!query) {
+                searchResults.classList.remove('active');
+                return;
+            }
+            
+            // Show search results section
+            searchResults.classList.add('active');
+            searchResultsGrid.innerHTML = '';
+            
+            // Search in all products
+            const allProducts = [
+                ...courseData.popular,
+                ...courseData.ebooks,
+                ...courseData.digitalProducts,
+                ...Object.values(courseData.coursesByCategory).flat()
+            ];
+            
+            // Filter products
+            const results = allProducts.filter(product => 
+                product.title.toLowerCase().includes(query)
+            );
+            
+            // Remove duplicates (based on id)
+            const uniqueResults = results.filter((product, index, self) =>
+                index === self.findIndex(p => p.id === product.id)
+            );
+            
+            // Display results
+            if (uniqueResults.length > 0) {
+                noResults.style.display = 'none';
+                uniqueResults.forEach(product => {
+                    const card = product.type === 'ebook' || product.type === 'digital' ? 
+                        createProductCard(product) : createCourseCard(product);
+                    searchResultsGrid.appendChild(card);
                 });
-            });
+                
+                // Scroll to results
+                searchResults.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                noResults.style.display = 'block';
+            }
+        }
 
-            // Initial animation on load
+        // Open payment modal
+        function openPaymentModal(title, price) {
+            paymentProductTitle.textContent = title;
+            paymentProductPrice.textContent = `₹${price}`;
+            paymentModal.style.display = 'flex';
+            paymentComplete.classList.remove('active');
+            
+            // Clear any existing timer
+            if (paymentTimerInterval) {
+                clearInterval(paymentTimerInterval);
+            }
+            
+            // Start timer
+            let timeLeft = 30;
+            paymentTimer.textContent = timeLeft;
+            
+            // Add animation to timer
+            paymentTimer.style.animation = 'timerPulse 1s infinite';
+            
+            paymentTimerInterval = setInterval(() => {
+                timeLeft--;
+                paymentTimer.textContent = timeLeft;
+                
+                // Add urgency effect when time is running out
+                if (timeLeft <= 10) {
+                    paymentTimer.style.color = 'var(--accent)';
+                }
+                
+                if (timeLeft <= 0) {
+                    clearInterval(paymentTimerInterval);
+                    paymentTimer.style.animation = 'none';
+                    paymentComplete.classList.add('active');
+                }
+            }, 1000);
+        }
+
+        // Close payment modal
+        function closePaymentModal() {
+            paymentModal.style.display = 'none';
+            if (paymentTimerInterval) {
+                clearInterval(paymentTimerInterval);
+            }
+            paymentTimer.style.animation = 'none';
+            paymentTimer.style.color = 'var(--primary)';
+        }
+
+        // Show notification
+        function showNotification(message) {
+            notificationMessage.textContent = message;
+            notification.classList.add('show');
+            
             setTimeout(() => {
-                animateOnScroll();
-            }, 500);
-        });
-
-        // Function to open buy modal
-        function openBuyModal(course, price) {
-            modalCourseTitle.textContent = course;
-            modalCoursePrice.textContent = price;
-            buyModal.style.display = 'flex';
+                notification.classList.remove('show');
+            }, 3000);
         }
 
-        // Function to animate elements on scroll
+        // Animate elements on scroll
         function animateOnScroll() {
-            // Trust cards animation
-            trustCards.forEach((card, index) => {
-                const cardTop = card.getBoundingClientRect().top;
+            const elements = document.querySelectorAll('.course-card, .category-card, .step');
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
                 const windowHeight = window.innerHeight;
                 
-                if (cardTop < windowHeight - 100) {
-                    setTimeout(() => {
-                        card.classList.add('visible');
-                    }, index * 100);
-                }
-            });
-
-            // Course cards animation
-            courseCards.forEach((card, index) => {
-                const cardTop = card.getBoundingClientRect().top;
-                const windowHeight = window.innerHeight;
-                
-                if (cardTop < windowHeight - 100) {
-                    setTimeout(() => {
-                        card.classList.add('visible');
-                    }, index * 150);
-                }
-            });
-
-            // Category cards animation
-            categoryCards.forEach((card, index) => {
-                const cardTop = card.getBoundingClientRect().top;
-                const windowHeight = window.innerHeight;
-                
-                if (cardTop < windowHeight - 100) {
-                    setTimeout(() => {
-                        card.classList.add('visible');
-                    }, index * 100);
-                }
-            });
-
-            // Steps animation
-            steps.forEach((step, index) => {
-                const stepTop = step.getBoundingClientRect().top;
-                const windowHeight = window.innerHeight;
-                
-                if (stepTop < windowHeight - 100) {
-                    setTimeout(() => {
-                        step.classList.add('visible');
-                    }, index * 200);
+                if (elementTop < windowHeight - 100) {
+                    element.classList.add('visible');
                 }
             });
         }
+
+        // Initial animations
+        setTimeout(animateOnScroll, 500);
     </script>
 </body>
-
 </html>
